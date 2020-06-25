@@ -1,0 +1,1 @@
+ALTER TABLE public.z_act_map DROP CONSTRAINT fk_map_act_s;

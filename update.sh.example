@@ -1,0 +1,25 @@
+#!/bin/bash
+# CHECKOUT:
+# svn co https://svn.cerebrohq.com/dbup/production dbup
+
+me=`whoami`
+if [ $me != "dbup" ]; then
+  sudo -u dbup ./update.sh
+  exit;
+fi;
+
+echo
+echo ----------------------
+hostname
+echo ----------------------
+
+# python3 ./bin/db_updater.py db-memoria || exit 2
+# python3 ./bin/db_updater.py db-jrpc    || exit 2
+
+# python3 ./bin/db_updater.py db-login  || exit 2
+# python3 ./bin/db_updater.py db-shoil  || exit 2
+
+# sudo svn up /www.rpc || exit 2
+# sudo svn up /cerebro/cargador/cron || exit 2
+# sudo svn up /cerebro/cargador/py_cerebro || exit 2
+svn up -q . 1>/dev/null
